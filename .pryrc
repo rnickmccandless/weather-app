@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 rails = File.join Dir.getwd, 'config', 'environment.rb'
 
 if File.exist?(rails) && ENV['SKIP_RAILS'].nil?
