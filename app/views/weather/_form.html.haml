@@ -20,7 +20,7 @@
         = f.select :state, options_for_select(us_states), {}, class: 'form-select', required: true
     .row.mb-3
       .col
-        = f.label :zipcode, class: 'form-label'
+        = f.label :zipcode, 'Zip code', class: 'form-label'
         = f.text_field :zipcode, class: 'form-control', required: true
       .col
         = f.label :country, class: 'form-label'

@@ -11,7 +11,7 @@ class WeatherController < ApplicationController
     @weather.fetch
 
     if @weather.errors.any?
-      log_errors(weather)
+      log_errors(@weather)
 
       flash.now[:alert] = 'There were errors attempting to retrieve the forecast. Please try again with a new address.'
 

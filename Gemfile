@@ -42,3 +42,11 @@ group :development do
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 end
+
+group :test do
+  gem 'capybara', '~> 3.39.1'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'selenium-webdriver', '~> 4.9.0'
+  gem 'webmock'
+end
