@@ -1,0 +1,47 @@
+= turbo_stream.update "weather" do
+  .modal-header
+    %h5.modal-title Weather Forecast
+    = link_to '', :back, class: "btn-close", data: {turbo_frame: "_top"}
+
+  .modal-body.mx-2
+    - if @weather.nil?
+      %p No weather information available.
+      %p
+        Please try again by
+        = link_to('"Use another address"', new_weather_path, data: { turbo_frame: 'modal' })
+        \.
+    - else
+      %p Weather forecast for: #{@address}
+      - if params[:cached] == 'true'
+        %p Result is cached by #{@address.zipcode}
+      %dl.row
+        %dt.col-sm-3 Current Temperature
+        %dd.col-sm-9
+          = temp_with_unit(@weather.current_temp, @weather.unit)
+
+        %dt.col-sm-3 High
+        %dd.col-sm-9
+          = temp_with_unit(@weather.high_temp, @weather.unit)
+
+        %dt.col-sm-3 Low
+        %dd.col-sm-9
+          = temp_with_unit(@weather.low_temp, @weather.unit)
+
+        %hr.border.border-primary.border-2.opacity-75
+
+        %dt.col-sm-3 Forecast
+        %dd.col-sm-9
+          - @weather.forecast.each do |forecast|
+            %dl.row
+              %dt.col-sm-5= format_date_from(forecast[:time])
+              %dd.col-sm-7
+                %dl.row
+                  %dt.col-sm-4 Low
+                  %dd.col-sm-8= temp_with_unit(forecast[:min], @weather.unit)
+                  %dt.col-sm-4 High
+                  %dd.col-sm-8= temp_with_unit(forecast[:max], @weather.unit)
+
+  .modal-footer
+    = link_to "Close", :back, class: "btn btn-secondary", data: {turbo_frame: "_top"}
+    = link_to "Use another address", new_weather_path, class: 'btn btn-primary', role: 'button',
+      data: { turbo_frame: 'modal' }

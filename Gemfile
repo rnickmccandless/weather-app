@@ -7,6 +7,8 @@ ruby '3.2.2'
 
 gem 'bootsnap', require: false
 gem 'bootstrap'
+gem 'faraday'
+gem 'geokit'
 gem 'haml_lint', require: false
 gem 'haml-rails', '~> 2.0'
 gem 'importmap-rails'
@@ -30,6 +32,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
   gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :development do
@@ -37,4 +41,12 @@ group :development do
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
+end
+
+group :test do
+  gem 'capybara', '~> 3.39.1'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'selenium-webdriver', '~> 4.9.0'
+  gem 'webmock'
 end

@@ -1,1 +1,7 @@
 @import "bootstrap";
+
+body {
+  min-height: 100vh;
+  background-size: cover;
+  background-image: url('background.jpeg');
+}

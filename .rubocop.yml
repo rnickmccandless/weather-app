@@ -1,3 +1,7 @@
+require:
+  - rubocop-rspec
+  - rubocop-rails
+
 AllCops:
   Exclude:
     - 'bin/*'
@@ -5,3 +9,15 @@ AllCops:
 
 Style/Documentation:
   Enabled: false
+
+Layout/LineLength:
+  Exclude:
+    - 'spec/factories/*'
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - 'spec/system/**/*'
+
+RSpec/ExampleLength:
+  Exclude:
+    - 'spec/system/**/*'

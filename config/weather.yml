@@ -1,0 +1,13 @@
+# Stores the environment variable to be used in the application
+
+# Faked data for tests
+test:
+  open_cage_api_key: <%= SecureRandom.alphanumeric(44) %>
+
+# Development values
+development:
+  open_cage_api_key: <%= ENV.fetch('OPEN_CAGE_APP_KEY', nil) %>
+
+# Production values
+production:
+  open_cage_api_key: <%= ENV.fetch('OPEN_CAGE_APP_KEY', nil) %>

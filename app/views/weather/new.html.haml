@@ -1,0 +1,7 @@
+= turbo_frame_tag "modal" do
+  = turbo_stream.update 'flash', partial: 'shared/flash_messages'
+  .modal.d-block{ tabindex: "-1" }
+    .modal-dialog.modal-lg
+      .modal-content
+        = turbo_frame_tag "weather" do
+          = render "form", weather: @weather
