@@ -20,9 +20,9 @@ class Weather
   def fetch
     Rails.cache.fetch("#{address}/address", expires_in: 30.minutes) do
       weather_service_from(address.to_s)
-    end
 
-    self
+      self
+    end
   end
 
   private

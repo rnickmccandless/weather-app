@@ -1,24 +1,24 @@
 # Weather App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This weather application accepts an address and displays the current temperature, high & low temperatures, and 
+a forecast of high & low temperatures for the next six days. 
 
-Things you may want to cover:
+There are two external endpoint requests required for this application to successfully retrieve weather information:
 
-* Ruby version
+- Coordinates from a given address from [OpenCage](https://opencagedata.com/)
+- The current and forecasted temperatures from the coordinates from [Open Meteo](https://open-meteo.com/)
 
-* System dependencies
+## Dependencies
 
-* Configuration
+- API key from [OpenCage](https://opencagedata.com/) (free with account)
+- Ruby 3.2
 
-* Database creation
+\*Note: Application is stateless, so no database is required to run the application.
 
-* Database initialization
+## Setup
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Clone application locally
+2. Set environment variable `OPEN_CAGE_APP_KEY` to the key given from account [OpenCage](https://opencagedata.com/)
+3. Run `bin/setup` to setup the application
+4. Run `rspec` to ensure all tests pass
+5. Run `rails s` to run the application locally
