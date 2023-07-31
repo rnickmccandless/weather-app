@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# An address model to model the address data
 class Address
   include ActiveModel::API
   include ActiveModel::Attributes

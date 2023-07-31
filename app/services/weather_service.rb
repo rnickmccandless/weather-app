@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# As service that makes API requests out to endpoints OpenCage (to geocode an address) and
+#   Open Meteo (for weather results based on coordinates)
+#
+# To allow OpenCage API calls work, set the environment variable `OPEN_CAGE_APP_KEY` to the API key
 class WeatherService
   require 'geokit'
 

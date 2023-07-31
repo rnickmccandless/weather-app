@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# A weather model to model the weather data. Results will be cached every 30 minutes from each zip code
 class Weather
   require 'geokit'
 

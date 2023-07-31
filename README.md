@@ -28,6 +28,7 @@ There are two external endpoint requests required for this application to succes
 - Uses latest stable Ruby & Rails versions
 - Design with bootstrap 5
 - All addresses are US based
+- All temperature units are in 'fahrenheit' 
 - Uses default cache store - memory store
 - Uses rubocop linting for majority of static code compliance
 - Application won't be used in commercial applications, as per licensing agreements from API usages and assets
