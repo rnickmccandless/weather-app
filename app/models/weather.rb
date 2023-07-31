@@ -17,8 +17,12 @@ class Weather
     new(address:).fetch
   end
 
+  def cached?
+    Rails.cache.read("#{address.zipcode}/zipcode").present?
+  end
+
   def fetch
-    Rails.cache.fetch("#{address}/address", expires_in: 30.minutes) do
+    Rails.cache.fetch("#{address.zipcode}/zipcode", expires_in: 30.minutes) do
       weather_service_from(address.to_s)
 
       self

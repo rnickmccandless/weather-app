@@ -1,7 +1,7 @@
 # Weather App
 
 This weather application accepts an address and displays the current temperature, high & low temperatures, and 
-a forecast of high & low temperatures for the next six days. 
+a forecast of high & low temperatures for the next six days. Results are cached by zip code
 
 There are two external endpoint requests required for this application to successfully retrieve weather information:
 
@@ -22,3 +22,13 @@ There are two external endpoint requests required for this application to succes
 3. Run `bin/setup` to setup the application
 4. Run `rspec` to ensure all tests pass
 5. Run `rails s` to run the application locally
+
+## Assumptions
+
+- Uses latest stable Ruby & Rails versions
+- Design with bootstrap 5
+- All addresses are US based
+- Uses default cache store - memory store
+- Uses rubocop linting for majority of static code compliance
+- Application won't be used in commercial applications, as per licensing agreements from API usages and assets
+- No data storage requirements, so set application as stateless

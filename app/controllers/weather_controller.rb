@@ -8,6 +8,7 @@ class WeatherController < ApplicationController
   def create
     @weather = Weather.new(address:)
 
+    is_cached = @weather.cached?
     @weather.fetch
 
     if @weather.errors.any?
@@ -17,7 +18,7 @@ class WeatherController < ApplicationController
 
       render :new
     else
-      redirect_to weather_path(address: address.attributes)
+      redirect_to weather_path(address: address.attributes, cached: is_cached)
     end
   end
 

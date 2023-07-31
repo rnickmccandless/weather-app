@@ -11,7 +11,9 @@
         = link_to('"Use another address"', new_weather_path, data: { turbo_frame: 'modal' })
         \.
     - else
-      %p Weather forecast for: #{@weather.address.to_s}
+      %p Weather forecast for: #{@address}
+      - if params[:cached] == 'true'
+        %p Result is cached by #{@address.zipcode}
       %dl.row
         %dt.col-sm-3 Current Temperature
         %dd.col-sm-9
