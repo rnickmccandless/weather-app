@@ -7,6 +7,8 @@ ruby '3.2.2'
 
 gem 'bootsnap', require: false
 gem 'bootstrap'
+gem 'faraday'
+gem 'geokit'
 gem 'haml_lint', require: false
 gem 'haml-rails', '~> 2.0'
 gem 'importmap-rails'
