@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Weather
   require 'geokit'
 
@@ -12,7 +14,7 @@ class Weather
   validates :address, presence: true
 
   def self.find(address)
-    new(address: address).fetch
+    new(address:).fetch
   end
 
   def fetch
@@ -34,17 +36,23 @@ class Weather
       return nil
     end
 
-    self.unit = weather_service.temperature_unit
-    self.current_temp = weather_service.weather[:current_weather][:temperature]
-    self.high_temp = weather_service.weather[:daily][:temperature_2m_max].first
-    self.low_temp = weather_service.weather[:daily][:temperature_2m_min].first
-    self.forecast = structure_forecast(weather_service.weather[:daily])
+    assign_attributes weather_attributes(weather_service)
+  end
+
+  def weather_attributes(weather_service)
+    {
+      unit: weather_service.temperature_unit,
+      current_temp: weather_service.weather[:current_weather][:temperature],
+      high_temp: weather_service.weather[:daily][:temperature_2m_max].first,
+      low_temp: weather_service.weather[:daily][:temperature_2m_min].first,
+      forecast: structure_forecast(weather_service.weather[:daily])
+    }
   end
 
   def structure_forecast(forecast)
     forecast[:time][1..].map.with_index do |time, i|
       {
-        time: time,
+        time:,
         min: forecast[:temperature_2m_min][i],
         max: forecast[:temperature_2m_max][i]
       }

@@ -20,7 +20,7 @@ class WeatherService
     location = Geokit::Geocoders::OpencageGeocoder.geocode address
 
     unless location.success?
-      self.errors << 'unable to find weather in your area'
+      errors << 'unable to find weather in your area'
 
       return self
     end
@@ -46,12 +46,12 @@ class WeatherService
 
   def open_meteo_params(latitude, longitude)
     {
-      latitude: latitude,
-      longitude: longitude,
+      latitude:,
+      longitude:,
       daily: 'temperature_2m_max,temperature_2m_min',
       timezone: 'GMT',
       current_weather: true,
-      temperature_unit: temperature_unit
+      temperature_unit:
     }
   end
 
@@ -59,7 +59,7 @@ class WeatherService
     if response.success?
       self.weather = response.body
     else
-      self.errors << 'unable to connect to open-meteo'
+      errors << 'unable to connect to open-meteo'
     end
   end
 end

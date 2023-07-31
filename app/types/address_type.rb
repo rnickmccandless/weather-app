@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 class AddressType < ActiveModel::Type::Value
   def cast(value)
     return if value.blank?
+
     if value.is_a?(Address)
       value
     elsif value.is_a?(Hash)

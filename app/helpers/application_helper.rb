@@ -2,7 +2,7 @@
 
 module ApplicationHelper
   def temp_with_unit(temp, unit)
-    "#{temp}&deg; #{unit.capitalize.chars.first}".html_safe
+    "#{temp}° #{unit.capitalize.chars.first}"
   end
 
   def format_date_from(date)
